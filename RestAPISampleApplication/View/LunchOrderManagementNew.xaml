@@ -1,0 +1,41 @@
+﻿<Window x:Class="RestAPISampleApplication.View.LunchOrderManagementNew"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RestAPISampleApplication.View"
+        mc:Ignorable="d"
+        Title="Lunch Order Management" Height="450" Width="900">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="31,11,0,0" TextWrapping="Wrap" Text="Lunch Order" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+        <TextBlock Margin="34,80,0,0" TextWrapping="Wrap" x:Name="DataCount" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <DataGrid HorizontalAlignment="Left" Height="260" Margin="34,101,0,0" VerticalAlignment="Top" Width="835" x:Name="OrderDataGrid" IsReadOnly="True" AutoGenerateColumns="False"
+            AlternatingRowBackground="LightBlue">
+            <DataGrid.Columns>
+                <DataGridHyperlinkColumn Header="Order ID" Binding="{Binding OrderId}" MinWidth="100">
+                    <DataGridHyperlinkColumn.ElementStyle>
+                        <Style>
+                            <EventSetter Event="Hyperlink.Click" Handler="DG_Hyperlink_Click"/>
+                        </Style>
+                    </DataGridHyperlinkColumn.ElementStyle>
+                </DataGridHyperlinkColumn>
+                <DataGridTextColumn Header="Order Person" Binding="{Binding OrderPerson}" MinWidth="200"/>
+                <DataGridTextColumn Header="Order Date" Binding="{Binding OrderDate}" MinWidth="150"/>
+                <DataGridTextColumn Header="Lunch Menu" Binding="{Binding LunchMenuName}" MinWidth="200"/>
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
+                <DataGridTemplateColumn MinWidth="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="btnDelete" Click="BtnDelete_Click" Background="#FFE81414" Foreground="White" BorderBrush="White" Width="90">Delete</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Name="btnNewOrder" Content="Create New Order" HorizontalAlignment="Left" Margin="695,20,0,0" VerticalAlignment="Top" Width="170" Height="30" Foreground="White" Background="#FF3D7BE8" BorderBrush="#FF3D7BE8" Click="BtnNewOrder_Click"/>
+        <TextBox Name="txtSearchValue" HorizontalAlignment="Left" Height="30" Margin="34,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="190" FontSize="16"/>
+        <Button Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="240,45,0,0" VerticalAlignment="Top" Width="75" Height="30" Background="#FF5FBF43" Foreground="White" Click="BtnSearch_Click"/>
+        <Button Name="btnClear" Content="Clear" HorizontalAlignment="Left" Margin="331,45,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="BtnClear_Click"/>
+
+    </Grid>
+</Window>

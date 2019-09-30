@@ -1,0 +1,62 @@
+﻿<Window x:Class="RestAPISampleApplication.View.LunchOrderDetailNew"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RestAPISampleApplication.View"
+        mc:Ignorable="d"
+        Title="Lunch Order Detail" Height="450" Width="800">
+    <Window.Resources>
+        <!--<Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Width" Value="160"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>-->
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style TargetType="DatePicker">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+    </Window.Resources>
+    <DockPanel Margin="10">
+        <StackPanel>
+            <Label Content="Lunch Order Detail" HorizontalAlignment="Left" FontSize="30" FontWeight="Bold"></Label>
+            <WrapPanel>
+                <TextBlock Text="Order Id : " Width="160" FontSize="16" VerticalAlignment="Center" Margin="10"/>
+                <TextBox Name="txtOrderId" />
+            </WrapPanel>
+            <WrapPanel>
+                <TextBlock Text="Order Person : " Width="160" FontSize="16" VerticalAlignment="Center" Margin="10"/>
+                <TextBox Name="txtOrderPerson" />
+            </WrapPanel>
+            <WrapPanel>
+                <TextBlock Text="Order Date : " Width="160" FontSize="16" VerticalAlignment="Center" Margin="10"/>
+                <DatePicker Name="dtOrderDate"/>
+            </WrapPanel>
+            <WrapPanel>
+                <TextBlock Text="Lunch Menu : " Width="160" FontSize="16" VerticalAlignment="Center" Margin="10"/>
+                <ComboBox FontSize="16" Name="ddlLunchMenu" Width="250" Margin="10" Height="30" ItemsSource="{Binding}" SelectionChanged="DdlLunchMenu_SelectionChanged">
+                </ComboBox>
+            </WrapPanel>
+            <WrapPanel>
+                <TextBlock Text="Quantity : " Width="160" FontSize="16" VerticalAlignment="Center" Margin="10"/>
+                <TextBox Name="txtQuantity" TextChanged="TxtQuantity_LostFocus"/>
+            </WrapPanel>
+            <WrapPanel>
+                <TextBlock Text="Amount : " Width="160" FontSize="16" VerticalAlignment="Center" Margin="10"/>
+                <Label Content="" Width="160" FontSize="16" VerticalAlignment="Center" Margin="10" Name="lblAmount"/>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Center">
+                <Button Content="Save" Width="100" Height="30" FontSize="16" Margin="10" Name="btnSave" Click="BtnSave_Click"/>
+                <Button Content="Cancel" Width="100" Height="30" FontSize="16" Margin="10" Name="btnCancel" Click="BtnCancel_Click"/>
+            </WrapPanel>
+        </StackPanel>
+    </DockPanel>
+</Window>
